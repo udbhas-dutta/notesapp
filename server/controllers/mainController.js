@@ -6,7 +6,10 @@ exports.homepage = async(req, res) => {
         description: 'Free Note Storage App'
     }
     
-    res.render("index", locals)
+    res.render("index", {
+        locals,
+        layout: '../views/layouts/front-page'
+    })
     //this index is the index.ejs created in the layouts folder
 }
 
