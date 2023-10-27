@@ -5,8 +5,6 @@ exports.dashboard = async(req, res) => {
         description: 'Free Note Storage App'
     }
 
-    const layoutPath = '../views/layouts/dashboard'
-    console.log("Layour path:", layoutPath);
     
     res.render("dashboard/db-page", {
         locals,

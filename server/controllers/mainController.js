@@ -6,7 +6,7 @@ exports.homepage = async(req, res) => {
         description: 'Free Note Storage App'
     }
     
-    res.render("index", {
+    res.render("front-content", {
         locals,
         layout: '../views/layouts/front-page'
     })
