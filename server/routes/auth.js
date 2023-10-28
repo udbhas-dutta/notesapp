@@ -12,7 +12,6 @@ passport.use(
       callbackURL: process.env.GOOGLE_CALLBACK_URL,
     },
     async function (accessToken, refreshToken, profile, done) {
-      console.log(profile);
 
       const newUser = {
         googleId: profile.id,
@@ -56,6 +55,19 @@ router.get(
 router.get("/login-failure", async (req, res) => {
   res.send("Something went wrong...");
 });
+
+//logout
+//Destroy user session
+router.get('/logout', (req,res)=>{
+    req.session.destroy(error =>{
+        if(error){
+            console.log(error);
+            res.send('Error logging out')
+        } else {
+            res.redirect('/')
+        }
+    })
+})
 
 //Persist user data after succcessful authentication
 passport.serializeUser((user, done) => {
