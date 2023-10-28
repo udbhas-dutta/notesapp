@@ -9,7 +9,7 @@ exports.dashboard = async (req, res) => {
     title: "Dashboard",
     description: "Free Note Storage App",
   };
-
+  
   try {
     //to show user-specific notes in the dashboard
       Note.aggregate([
@@ -31,7 +31,6 @@ exports.dashboard = async (req, res) => {
       .exec()
       .then((notes) => {
         return Note.countDocuments().exec().then((count) => {
-
           res.render("dashboard/db-page", {
             userName: req.user.firstName,
             locals,
