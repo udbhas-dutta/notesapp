@@ -65,6 +65,16 @@ exports.dashboardViewNote = async(req,res) =>{
 }
 
 
+//PUT 
+//update specific note
 exports.dashboardUpdateNote = async(req,res) =>{
-  
+  try {
+    await Note.findOneAndUpdate(
+      {_id: req.params.id},
+      {title: req.body.title, body:req.body.body}
+      ).where({user: req.user.id});
+      res.redirect('/dashboard');
+  } catch (error) {
+    console.log(error);
+  }
 }
