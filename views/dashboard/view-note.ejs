@@ -40,6 +40,7 @@
 
 </div>
 
+<!-- modal -->
 
 <div class="modal fade" tabindex="-1" role="dialog" id="deleteModal">
     <div class="modal-dialog" role="document">
@@ -55,8 +56,10 @@
             </p>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-secondary">Close</button>
-            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Delete Note </button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+            <form action="/dashboard/item-delete/<%=noteID %>?_method=DELETE" method="POST" class="position-relative">
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Delete Note </button></form>
             
         </div>
         </div>
